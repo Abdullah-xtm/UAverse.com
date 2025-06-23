@@ -1,40 +1,228 @@
-body {
+ :root {
+  --primary-color: #1e88e5;
+  --secondary-color: #ffffff;
+  --accent-color: #f4f6f8;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --text-color: #333333;
+  --link-color: #1565c0;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #fcfafa;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--accent-color);
+  color: var(--text-color);
   line-height: 1.6;
-}
-
-header {
-  background-color: #306ba3;
-  color: rgb(15, 15, 15);
-  padding: 2rem;
+  transition: background-color 0.3s, color 0.3s;
   text-align: center;
+  padding-bottom: 60px;
 }
 
+/* --- Navbar --- */
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  padding: 15px 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #0d47a1;
+}
+
+nav button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+nav button:hover {
+  background-color: #1565c0;
+}
+
+/* --- Sections --- */
 section {
-  padding: 2rem;
-  border-bottom: 1px solid #fcfbfb;
+  scroll-margin-top: 100px;
+  background-color: var(--secondary-color);
+  padding: 50px 20px;
+  margin: 40px auto;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s;
 }
 
-h1, h2 {
-  margin-top: 0;
+section h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+section p,
+section li,
+section a {
+  font-size: 1.05rem;
+}
+
+/* --- Header --- */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 40px;
+}
+
+/* --- List & Links --- */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
 }
 
 a {
-  color: #3f84b3;
+  color: var(--link-color);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #0d47a1;
 }
 
-footer {
-  background-color: #333;
-  color: #050505;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+/* --- Contact Form --- */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+form button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #1565c0;
+}
+
+/* --- Dark Mode --- */
+.dark-mode {
+  background-color: var(--dark-bg);
+  color: #f1f1f1;
+}
+
+.dark-mode header {
+  background-color: var(--dark-card);
+}
+
+.dark-mode section {
+  background-color: var(--dark-card);
+}
+
+.dark-mode nav {
+  background-color: #1c1c1c;
+}
+
+.dark-mode a {
+  color: #90caf9;
+}
+
+.dark-mode nav button {
+  background-color: #90caf9;
+  color: #121212;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 30px 20px;
+  }
 }

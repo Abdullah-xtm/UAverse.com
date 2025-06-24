@@ -1,4 +1,4 @@
- :root {
+:root {
   --primary-color: #1e88e5;
   --secondary-color: #ffffff;
   --accent-color: #f4f6f8;
@@ -69,6 +69,30 @@ nav button {
 
 nav button:hover {
   background-color: #1565c0;
+}
+
+/* --- Dark Mode Toggle Floating Button --- */
+#darkModeToggle {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  padding: 10px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #darkModeToggle {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    transform: none;
+  }
 }
 
 /* --- Sections --- */
@@ -184,6 +208,16 @@ form button:hover {
   background-color: #1565c0;
 }
 
+/* --- Thank You / Static Page Styling --- */
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
 /* --- Dark Mode --- */
 .dark-mode {
   background-color: var(--dark-bg);
@@ -209,6 +243,10 @@ form button:hover {
 .dark-mode nav button {
   background-color: #90caf9;
   color: #121212;
+}
+
+.dark-mode main {
+  background-color: var(--dark-card);
 }
 
 /* --- Responsive --- */

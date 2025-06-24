@@ -3,35 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UAverse.com</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
-
-  <!-- External CSS -->
+  <title>UAverse</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- AOS Animation Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-  <!-- Smooth Scrolling -->
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 
 <body>
+  <!-- Dark Mode Button -->
+  <button id="darkModeToggle" onclick="toggleMode()">🌙</button>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#services">Services</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact-form">Contact</a>
-    <button onclick="toggleMode()">🌙 Dark Mode</button>
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="index.html#contact-form">Contact</a>
   </nav>
 
   <!-- Header -->
@@ -43,11 +31,7 @@
   <!-- About -->
   <section id="about" data-aos="fade-up">
     <h2>ABOUT US</h2>
-    <p>
-      We're Umar & Abdullah.<br>
-      Two curious minds, one shared vision.<br>
-      From ideas to execution — stick around, it gets better.
-    </p>
+    <p>We're Umar & Abdullah. Two curious minds, one shared vision. From ideas to execution — stick around, it gets better.</p>
   </section>
 
   <!-- Projects -->
@@ -74,26 +58,24 @@
   <section id="blog" data-aos="fade-up">
     <h2>INSIGHTS</h2>
     <ul>
-      <li><a href="#">Why We Built UAverse</a></li>
-      <li><a href="#">Our Favorite Tech Tools in 2025</a></li>
-      <li><a href="#">Lessons from Our First Year Online</a></li>
+      <li><a href="why.html">Why We Built UAverse</a></li>
+      <li><a href="learning.html">What We're Learning</a></li>
+      <li><a href="tools.html">Our Favorite Tech Tools</a></li>
     </ul>
   </section>
 
-  <!-- CONTACT US (with FormSubmit + Thank You Redirect) -->
+  <!-- Contact -->
   <section id="contact-form" data-aos="fade-up">
     <h2>CONTACT US</h2>
     <form action="https://formsubmit.co/abdullahnaveed23235@gmail.com" method="POST">
-      <!-- Hidden Customization Inputs -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New message from UAverse website">
-      <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="thankyou.html">
+      <input type="hidden" name="_subject" value="New message from UAverse">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
 
-      <!-- Visible Fields -->
-      <input type="text" name="name" placeholder="Your Name" required><br><br>
-      <input type="email" name="email" placeholder="Your Email" required><br><br>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br><br>
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="email" name="email" placeholder="Your Email" required><br>
+      <textarea name="message" placeholder="Your Message" required></textarea><br>
       <button type="submit">Send</button>
     </form>
   </section>
@@ -103,18 +85,27 @@
     <p>&copy; 2025 UAverse. All rights reserved.</p>
   </footer>
 
-  <!-- AOS Script -->
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
-  </script>
 
-  <!-- Dark Mode Script -->
-  <script>
+    // Persistent Dark Mode
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const currentMode = localStorage.getItem('darkMode');
+
+    if (currentMode === 'enabled') {
+      document.body.classList.add('dark-mode');
+    }
+
     function toggleMode() {
       document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+      }
     }
   </script>
-
 </body>
 </html>

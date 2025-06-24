@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Favorite Tech Tools</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="darkModeToggle" onclick="toggleMode()">🌙</button>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="why.html">Why UAverse</a>
+    <a href="learning.html">Learning</a>
+    <a href="index.html#contact-form">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Our Favorite Tech Tools</h1>
+    <p>From code to collaboration — these are our essentials</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Tools We Love</h2>
+      <ul>
+        <li>🧠 Notion for planning & docs</li>
+        <li>💻 VS Code for development</li>
+        <li>🎨 Figma for design & prototyping</li>
+        <li>⚙️ GitHub for version control</li>
+        <li>🚀 Netlify for fast deployment</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 UAverse. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const mode = localStorage.getItem('darkMode');
+    if (mode === 'enabled') document.body.classList.add('dark-mode');
+
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+    }
+  </script>
+</body>
+</html>
+
